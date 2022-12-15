@@ -1,0 +1,146 @@
+{{#if user}}
+  <div class="container">
+    <!-- Content here -->
+    <br />
+    <form
+      action="/logout"
+      method="get"
+      style="background: lightgreen; border-radius: 5px; padding: 10px; display: flex; justify-content: space-between;"
+    >
+      <h1>Bienvenido {{user}}</h1>
+      <button type="submit" class="btn btn-primary">Disconnect</button>
+    </form>
+    <br />
+    <h1>Add Product</h1>
+    <br />
+    <form onsubmit="return addProduct(this)">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          id="title"
+          aria-describedby="emailHelp"
+          placeholder="Enter name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Price</label>
+        <input
+          type="number"
+          class="form-control"
+          name="price"
+          id="price"
+          aria-describedby="emailHelp"
+          placeholder="Enter price"
+        />
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Picture</label>
+        <input
+          type="text"
+          class="form-control"
+          name="thumbnail"
+          id="thumbnail"
+          aria-describedby="emailHelp"
+          placeholder="Enter picture"
+        />
+      </div>
+      <br />
+      <button type="submit" class="btn btn-primary">Send</button>
+      <br />
+    </form>
+  </div>
+  <div class="container">
+    <!-- Content here -->
+    <br />
+    <h1>Products View</h1>
+    {{#if body}}
+      <table class="table" style="background-color: black; color: white;">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Picture</th>
+          </tr>
+        </thead>
+        <tbody id="productos" style="color: gray">
+        </tbody>
+      </table>
+    {{else}}
+      <p>There is no data yet.</p>
+    {{/if}}
+  </div>
+  <div class="container">
+    <!-- Content here -->
+    <br />
+    <h1>Chat</h1>
+
+    <form>
+      <input type="text" id="username" placeholder="Tu email" />
+      <br /><br />
+      <input type="text" id="firstname" placeholder="Tu nombre" />
+      <br /><br />
+      <input type="text" id="lastname" placeholder="Tu apellido" />
+      <br /><br />
+      <input type="text" id="age" placeholder="Tu edad" />
+      <br /><br />
+      <input type="text" id="alias" placeholder="Tu alias" />
+      <br /><br />
+      <input type="text" id="avatar" placeholder="Tu avatar" />
+      <br />
+      <br />
+      {{#if body2}}
+        <div id="mensajes"></div>
+      {{else}}
+        <p>There is no data yet.</p>
+      {{/if}}
+      <br />
+      <input type="text" id="texto" placeholder="Cuéntanos algo..." />
+      <input onclick="return addMessage(this)" type="button" value="Enviar" />
+    </form>
+  </div>
+{{else}}
+  {{#if lastuser}}
+    <br />
+    <div
+      class="container"
+      style="background: lightpink; border-radius: 5px; padding: 10px;"
+    >
+      <!-- Content here -->
+      <h1>Hasta luego {{lastuser}}</h1>
+    </div>
+  {{else}}
+    <div class="container">
+      <!-- Content here -->
+      <br />
+      <h1>Login de Usuario</h1>
+      <br />
+      <form action="/login" method="post">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            id="username"
+            aria-describedby="emailHelp"
+            placeholder="Enter username"
+          />
+          <input
+            type="text"
+            class="form-control"
+            name="password"
+            id="password"
+            aria-describedby="emailHelp"
+            placeholder="Enter password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </div>
+    <div class="container">
+      <a href="/registro" class="btn btn-primary">Ir al registro</a>
+    </div>
+  {{/if}}
+{{/if}}

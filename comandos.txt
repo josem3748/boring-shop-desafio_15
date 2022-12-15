@@ -1,0 +1,20 @@
+node server.js
+node server.js -m cluster
+nodemon server.js
+nodemon server.js -m cluster
+forever start server.js -w
+forever list
+forever stopall
+forever start server.js -w -m cluster
+forever list
+forever stopall
+pm2 start server.js --name="server1" --watch -- -p 8081
+pm2 start server.js --name="server2" --watch -i max -- -p 8082
+pm2 list
+pm2 kill
+pm2 start server.js --name="server0" --watch -- -p 8080
+pm2 start apiRandoms.js --name="server1" --watch -- -p 8081 -m cluster
+pm2 start apiRandoms.js --name="server2" --watch -- -p 8082
+pm2 start apiRandoms.js --name="server3" --watch -- -p 8083
+pm2 start apiRandoms.js --name="server4" --watch -- -p 8084
+pm2 start apiRandoms.js --name="server5" --watch -- -p 8085

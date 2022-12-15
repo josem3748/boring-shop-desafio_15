@@ -1,0 +1,21 @@
+node --prof server.js
+
+artillery quick --count 50 -n 20 http://localhost:8080/info > result_bloq.txt
+
+apago server
+
+cambio nombre
+
+node.exe --prof-process bloq-v8.log > result_prof-bloq.txt
+
+--- > Saco console log
+
+node --prof server.js
+
+artillery quick --count 50 -n 20 http://localhost:8080/info > result_nobloq.txt
+
+apago server
+
+cambio nombre
+
+node.exe --prof-process nobloq-v8.log > result_prof-nobloq.txt
