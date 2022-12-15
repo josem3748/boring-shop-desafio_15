@@ -517,6 +517,12 @@ app.get("/api/productos-test", async (req, res) => {
   }
 });
 
+//////////////////////////// RAILWAY APP /////////////////////////////////
+
+app.get("/", async (req, res) => {
+  res.send("Hola Railway!");
+});
+
 //////////////////////////// SERVER /////////////////////////////////
 
 const MODO = args.modo;
